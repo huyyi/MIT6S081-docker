@@ -36,6 +36,9 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ghcr.io/${{ github.repository }}
+          tag: |
+            type=raw,value=latest,enable=true
+          flavor: latest=false
           
           
       - name: Build and push Docker image
