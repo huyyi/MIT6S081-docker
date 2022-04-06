@@ -3,9 +3,16 @@ Docker environment of MIT6.S081 2021 labs
 
 ## How to use
 
-## Setup docker container
+### Setup docker container
+1. Pull docker image
+    ```shell 
+        docker pull ghcr.io/huyyi/mit6s081-docker:latest
+    ```
+2. Run docker container with volume mapping
+    ``` shell 
 
-## Test your code
+    ```
+### Test your code
 
 ## Branches
 
