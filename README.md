@@ -10,9 +10,13 @@ Docker environment of MIT6.S081 2021 labs
     ```
 2. Run docker container with volume mapping
     ``` shell 
-
+        docker run --name=mit -v <xv6-directory>:/xv6 ghcr.io/huyyi/mit6s081-docker:latest
     ```
 ### Test your code
+- In host: 
+    ```shell 
+        docker exec <container> make qemu
+    ```
 
 ## Branches
 
