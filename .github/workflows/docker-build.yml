@@ -1,3 +1,5 @@
+name: build and push to ghcr
+
 on:
   push:
     branches: 
@@ -33,7 +35,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ghcr.io/${{ GITHUB_REPOSITORY }}
+          images: ghcr.io/${{ github.repository }}
           
           
       - name: Build and push Docker image
