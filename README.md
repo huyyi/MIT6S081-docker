@@ -15,8 +15,12 @@ Docker environment of MIT6.S081 2021 labs
 ### Test your code
 - In host: 
     ```shell 
-    docker exec <container> make qemu
+    docker attach <container>
     ```
+
+- Escape from container without interrupt shell
+
+    Press `ctrl` + `Q` + `P`
 
 ## Branches
 
