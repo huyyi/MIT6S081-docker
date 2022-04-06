@@ -11,4 +11,3 @@ RUN apt-get update && \
 
 WORKDIR /xv6
 ENTRYPOINT ["/bin/bash"]
-CMD ["make", "qemu"]
