@@ -1,6 +1,9 @@
 # MIT6S081-docker
 Docker environment of MIT6.S081 2021 labs
 
+## Reports
+- [syscall](https://github.com/huyyi/MIT6S081-docker/blob/master/reports/lab2-syscall.md)
+- [Page tables](https://github.com/huyyi/MIT6S081-docker/blob/master/reports/lab3-pgtbl.md)
 ## How to use
 
 ### Setup docker container
@@ -15,12 +18,8 @@ Docker environment of MIT6.S081 2021 labs
 ### Test your code
 - In host: 
     ```shell 
-    docker attach <container>
+    docker exec -it  mit bash
     ```
-
-- Escape from container without interrupt shell
-
-    Press `ctrl` + `Q` + `P`
 
 ## Branches
 
