@@ -15,6 +15,7 @@ RUN apt-get update && \
 
 # set sshd for remote develop
 RUN echo 'root:passwd' | chpasswd && \
+    mkdir /run/sshd && \
     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 WORKDIR /xv6
