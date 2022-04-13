@@ -5,5 +5,5 @@ services:
     image: ghcr.io/huyyi/mit6s081-docker:latest
     ports:
       - '30122:22'
-    volumes:
-      - ./:/xv6
+    # volumes:
+    #   - ./:/xv6
