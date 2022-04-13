@@ -14,7 +14,7 @@ RUN apt-get update && \
     apt-get install -y openssh-server git build-essential gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu cmake
 
 # set sshd for remote develop
-RUN echo 'root:passwd' | chpasswd && 
+RUN echo 'root:passwd' | chpasswd && \
     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 WORKDIR /xv6
