@@ -7,7 +7,7 @@ ENV TZ=Asia/Shanghai \
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # set gdb config
-RUN mkdir /vx6 && echo add-auto-load-safe-path /xv6 >> /root/.gdbinit
+RUN mkdir /xv6 && echo add-auto-load-safe-path /xv6 >> /root/.gdbinit
 
 # install compaile tools
 # rsync and cmake for clion remote
