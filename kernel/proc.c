@@ -127,14 +127,6 @@ found:
     return 0;
   }
   // Allocate an usyscall page
-  if((p->usyscall = (struct usyscall *)kalloc()) == 0){
-    freeproc(p);
-    release(&p->lock);
-    return 0;
-  }
-  p->usyscall->pid = p->pid;
-
-  // lab1 usyscall page 
   if((p->ucall = (struct usyscall *)kalloc()) == 0){
     freeproc(p);
     release(&p->lock);
