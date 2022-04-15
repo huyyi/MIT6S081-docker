@@ -23,5 +23,5 @@ submissions/
 ph
 barrier
 
-.vscode
-.idea
+.vscode/
+.idea/
