@@ -77,10 +77,40 @@ sys_sleep(void)
 
 
 #ifdef LAB_PGTBL
+/* 
+System call that reports which pages have been accessed. 
+va_st: Starting virtual address of the first user page to check.
+pgnum: the number of pages to check.
+bufaddr: user address to a buffer to store the results into a bitmask
+*/
 int
 sys_pgaccess(void)
 {
-  // lab pgtbl: your code here.
+  uint64 va_st, bufaddr;
+  int pgnum;
+  uint32 buf = 0;
+
+  if (argaddr(0, &va_st) < 0)
+    return -1;
+  if (argint(1, &pgnum) < 0 || pgnum > 32)
+    return -1;
+  if (argaddr(2, &bufaddr) < 0)
+    return -1;
+
+  struct proc *p;
+  if ((p = myproc()) == 0)
+    return -1;
+  pagetable_t tbl = p->pagetable;
+  pte_t *pte;
+  for (int i = 0; i < pgnum; ++i) {
+    pte = walk(tbl, va_st + i * PGSIZE, 0);
+    if (*pte && *pte & PTE_A) {
+      buf |= 1 << i;
+      *pte &= ~PTE_A;
+    }
+  }
+  if (copyout(tbl, bufaddr, (char *)&buf, sizeof buf) < 0)
+      return -1;
   return 0;
 }
 #endif
