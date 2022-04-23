@@ -53,6 +53,7 @@ if((pte & PTE_V) && (pte & (PTE_R|PTE_W|PTE_X)) == 0){
 }
 ```
 
-## Detecting which pages have been accessed
-MMU 在进行虚拟地址转换时，在访问页表项时会将访问位标记。
+## Detecting which pages have been accessed [commit](https://github.com/huyyi/MIT6S081-docker/commit/ad4b4db4cb9a016e1e7b3c2e46aecdb635040c56)
+MMU 在进行虚拟地址转换时，在访问页表项时会将访问位标记置1。
 
+对于传入的虚拟地址，可以通过 `walk()` 函数找到其对应的页表，验证该页表上 `V` 标记和 `A` 标记即可，对于被 `pgaccess` 访问过的页表需要将 `A`标记置 0。
